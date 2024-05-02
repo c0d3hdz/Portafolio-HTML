@@ -19,7 +19,7 @@ Puedes ver una demostración en vivo de mi portafolio [aquí](https://c0d3hdz.gi
 
 ## Características
 
-- Diseño responsivo para adaptarse a diferentes dispositivos y tamaños de pantalla.(Por terminar ❌)
+- Diseño responsivo para adaptarse a diferentes dispositivos y tamaños de pantalla.(✔✔✔✔🟢)
 - Secciones organizadas para presentar proyectos, habilidades y contacto.(Por terminar ❌)
 - Animaciones suaves y atractivas para mejorar la experiencia del usuario.(Por terminar ❌)
 
