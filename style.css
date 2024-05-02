@@ -24,9 +24,12 @@ body {
     text-align: center;
 }
 .back_ground {
-    background-color: #ffff;
+    background-color: #ffffff;
 }
 /*----------------------------*/
+.content_theme{
+    text-align: end;
+}
 .main_menu {
     display: flex;
     justify-content: center;
@@ -150,4 +153,19 @@ body {
     object-fit: cover;
     object-position: center;
     border-radius: 20px;
+}
+/*----------------------------------------------------------------------*/
+.tags_more {
+    padding: 10px;
+    border-radius: 20px;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tags_more > ul {
+    color: rgb(37, 179, 75);
+    font-weight: 900;
+    text-decoration: underline;
 }
