@@ -37,6 +37,9 @@ body {
 .content_theme >.menu_telephone{
     display: none;
 }
+.change_theme{
+    cursor: pointer;
+}
 .content_theme {
     text-align: end;
 }
