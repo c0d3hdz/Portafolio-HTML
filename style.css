@@ -26,8 +26,16 @@ body {
 .back_ground {
     background-color: #ffffff;
 }
+.main_menu {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+}
 /*----------------------------*/
-.content_theme{
+.icon_menu {
+    color: rgb(37, 179, 75);
+}
+.content_theme {
     text-align: end;
 }
 .main_menu {
@@ -36,12 +44,13 @@ body {
     align-items: center;
 }
 .menu {
-    width: 60%;
+    max-width: 98%;
+    min-width: 60%;
     padding: 25px 20px 25px 20px;
     border-end-end-radius: 20px;
     border-end-start-radius: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
 }
 .menu_options {
     display: flex;
@@ -69,6 +78,11 @@ body {
         'User_info info_content_main info_content_main info_content_main'
         'User_info info_content_main info_content_main info_content_main'
         'tags_more info_content_main info_content_main info_content_main';
+}
+@media (max-width: 1250px) {
+    .Content_main {
+        padding: 0;
+    }
 }
 
 .User_info {
@@ -153,6 +167,11 @@ body {
     object-fit: cover;
     object-position: center;
     border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.Proyect_img > img:hover {
+    transform: scale(0.9);
 }
 /*----------------------------------------------------------------------*/
 .tags_more {
@@ -168,4 +187,38 @@ body {
     color: rgb(37, 179, 75);
     font-weight: 900;
     text-decoration: underline;
+}
+
+/*----------------------------------------------------------------------*/
+@media (max-width: 500px) {
+    .Content_main {
+        padding: 30px;
+        margin-top: 20px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .Card_presentation > img {
+        width: 50%;
+        height: calc(100% - 20%);
+        border-radius: 20px;
+    }
+    .content_theme {
+        text-align: end;
+    }
+    .content_theme > span {
+        margin-left: 20px;
+    }
+    .menu {
+        width: 100%;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: auto 2fr;
+    }
+    .menu_options {
+        display: none;
+    }
+    .Card_descripcion_proyect {
+        height: 400px;
+    }
 }
