@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #f5fff4;
 }
 * {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
@@ -24,7 +23,7 @@ body {
     text-align: center;
 }
 .back_ground {
-    background-color: #ffffff;
+    background-color: rgb(255, 255, 255);
 }
 .main_menu {
     position: sticky;
@@ -34,6 +33,9 @@ body {
 /*----------------------------*/
 .icon_menu {
     color: rgb(37, 179, 75);
+}
+.content_theme >.menu_telephone{
+    display: none;
 }
 .content_theme {
     text-align: end;
