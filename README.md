@@ -11,7 +11,7 @@ Este es mi portafolio personal, creado con HTML y CSS. Aquí presento algunos de
 - [Cómo Utilizar](#cómo-utilizar)
 - [Contribución](#contribución)
 - [Autor](#autor)
-- [Licencia](#licencia)
+- [Uso del Proyecto](#uso-del-proyecto)
 
 ## Demo
 
@@ -20,12 +20,12 @@ Puedes ver una demostración en vivo de mi portafolio [aquí](https://c0d3hdz.gi
 ## Características
 
 - Diseño responsivo para adaptarse a diferentes dispositivos y tamaños de pantalla.(✔✔✔✔🟢)
-- Secciones organizadas para presentar proyectos, habilidades y contacto.(Por terminar ❌)
+- Secciones organizadas para presentar proyectos, habilidades y contacto.(En proceso 🥭🥭🥭)
 - Animaciones suaves y atractivas para mejorar la experiencia del usuario.(Por terminar ❌)
 
 ## Capturas de Pantalla
 - VERSION ACTUAL: V1
-![image](https://github.com/c0d3hdz/Portafolio-HTML/assets/145168535/e7cbe358-78c4-4cf3-9166-a16b66b3660f)
+- ![image](https://github.com/c0d3hdz/Portafolio-HTML/assets/145168535/afde086c-f64f-428c-b234-b82e9f91ef3d)
 
 
 ## Tecnologías Utilizadas
