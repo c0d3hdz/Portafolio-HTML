@@ -13,7 +13,8 @@ const pastelColors = [
 ]
 let originalBackgroundColor = pastelColors[0]
 let originalTextColor = 'rgb(0, 0, 0)'
-let isDarkMode = false
+let isDarkMode = true
+toggleDarkMode
 
 for (let i = 0; i < Cambio_de_tema.length; i++) {
     Cambio_de_tema[i].addEventListener('click', event => {
