@@ -23,7 +23,7 @@ body {
     text-align: center;
 }
 .back_ground {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(237, 237, 237);
 }
 .main_menu {
     position: sticky;
@@ -84,7 +84,6 @@ body {
     .menu {
         width: 100%;
     }
-
 }
 
 .User_info {
@@ -155,7 +154,6 @@ body {
     border-left: solid;
 }
 
-
 .Proyect_img {
     position: relative;
     overflow: hidden;
@@ -199,26 +197,38 @@ body {
     border-radius: 40px;
     overflow: hidden;
     display: none;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
 }
 input[type='range'] {
-    -webkit-appearance: none;
+    appearance: none;
     width: 90%;
-    height: 10px;
+    height: 15px;
     background: linear-gradient(
         to right,
-        rgb(255, 204, 204),
-        rgb(255, 229, 204),
-        rgb(255, 255, 204),
-        rgb(204, 255, 204),
-        rgb(204, 255, 255),
-        rgb(204, 204, 255),
-        rgb(255, 204, 255),
-        rgb(255, 153, 204),
-        rgb(255, 204, 153),
-        rgb(153, 204, 255)
+        #ff0000,
+        #ff4d00,
+        #ff9900,
+        #ffe500,
+        #ccff00,
+        #80ff00,
+        #33ff00,
+        #00ff19,
+        #00ff66,
+        #00ffb2,
+        #00ffff,
+        #00b2ff,
+        #0066ff,
+        #0019ff,
+        #3300ff,
+        #8000ff,
+        #cc00ff,
+        #ff00e5,
+        #ff0099,
+        #ff004d
     );
+
     border-radius: 5px;
     outline: none;
     opacity: 0.7;

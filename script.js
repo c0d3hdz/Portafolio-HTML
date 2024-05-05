@@ -1,20 +1,51 @@
 let Cambio_de_tema = document.getElementsByClassName('change_theme')
 const pastelColors = [
-    'rgb(255, 204, 204)', // Rosa pastel
-    'rgb(255, 229, 204)', // Melocotón pastel
-    'rgb(255, 255, 204)', // Amarillo pastel
-    'rgb(204, 255, 204)', // Verde pastel
-    'rgb(204, 255, 255)', // Cian pastel
-    'rgb(204, 204, 255)', // Azul pastel
-    'rgb(255, 204, 255)', // Lila pastel
-    'rgb(255, 153, 204)', // Malva pastel
-    'rgb(255, 204, 153)', // Melón pastel
-    'rgb(153, 204, 255)', // Celeste pastel
+    'rgb(255, 0, 0)', // Rojo
+    'rgb(255, 69, 0)', // Rojo anaranjado
+    'rgb(255, 127, 0)', // Naranja
+    'rgb(255, 165, 0)', // Naranja oscuro
+    'rgb(255, 192, 0)', // Naranja amarillento
+    'rgb(255, 255, 0)', // Amarillo
+    'rgb(255, 255, 102)', // Amarillo claro
+    'rgb(204, 255, 0)', // Lima
+    'rgb(173, 255, 47)', // Verde lima
+    'rgb(154, 205, 50)', // Verde limón
+    'rgb(152, 251, 152)', // Verde pálido
+    'rgb(0, 255, 0)', // Verde
+    'rgb(50, 205, 50)', // Verde bosque
+    'rgb(0, 250, 154)', // Verde medio
+    'rgb(0, 128, 0)', // Verde oscuro
+    'rgb(34, 139, 34)', // Verde bosque oscuro
+    'rgb(0, 255, 255)', // Cian
+    'rgb(0, 206, 209)', // Turquesa claro
+    'rgb(72, 209, 204)', // Turquesa medio
+    'rgb(0, 128, 128)', // Verde azulado
+    'rgb(32, 178, 170)', // Verde azulado claro
+    'rgb(0, 0, 255)', // Azul
+    'rgb(0, 0, 205)', // Azul medio
+    'rgb(65, 105, 225)', // Azul real
+    'rgb(0, 0, 128)', // Azul oscuro
+    'rgb(25, 25, 112)', // Azul medianoche
+    'rgb(138, 43, 226)', // Violeta
+    'rgb(148, 0, 211)', // Violeta oscuro
+    'rgb(139, 0, 139)', // Violeta oscuro
+    'rgb(186, 85, 211)', // Orquídea
+    'rgb(218, 112, 214)', // Orquídea medio
+    'rgb(153, 50, 204)', // Orquídea oscuro
+    'rgb(148, 0, 211)', // Violeta
+    'rgb(216, 191, 216)', // Lavanda
+    'rgb(221, 160, 221)', // Orquídea pálida
+    'rgb(255, 0, 255)', // Magenta
+    'rgb(238, 130, 238)', // Magenta pálido
+    'rgb(255, 105, 180)', // Rosa claro
+    'rgb(255, 192, 203)', // Rosa
+    'rgb(255, 182, 193)', // Rosa claro
+    'rgb(255, 69, 0)', // Rojo anaranjado (repetido al final)
 ]
+
 let originalBackgroundColor = pastelColors[0]
 let originalTextColor = 'rgb(0, 0, 0)'
 let isDarkMode = true
-toggleDarkMode
 
 for (let i = 0; i < Cambio_de_tema.length; i++) {
     Cambio_de_tema[i].addEventListener('click', event => {
@@ -43,7 +74,7 @@ changeColorButton.addEventListener('click', toggle_panelColor)
 function toggleDarkMode() {
     let backgroundColor = originalBackgroundColor
     let rgb = backgroundColor.match(/\d+/g)
-    let darkerRGB = rgb.map(value => Math.floor(value * 0.3))
+    let darkerRGB = rgb.map(value => Math.floor(value * 0.2))
     let darkerBackgroundColor = `rgb(${darkerRGB[0]}, ${darkerRGB[1]}, ${darkerRGB[2]})`
     document.body.style.backgroundColor = darkerBackgroundColor
 
@@ -51,7 +82,7 @@ function toggleDarkMode() {
     backGroundElements.forEach(element => {
         let elementColor = originalBackgroundColor
         let elementRGB = elementColor.match(/\d+/g)
-        let darkerElementRGB = elementRGB.map(value => Math.floor(value * 0.5))
+        let darkerElementRGB = elementRGB.map(value => Math.floor(value * 0.3))
         let darkerElementColor = `rgb(${darkerElementRGB[0]}, ${darkerElementRGB[1]}, ${darkerElementRGB[2]})`
         element.style.backgroundColor = darkerElementColor
     })
