@@ -118,6 +118,7 @@ colorRange.addEventListener('input', function () {
     } else {
         toggleDarkMode()
     }
+    Color_elements()
 })
 
 colorRange.dispatchEvent(new Event('input'))
@@ -132,3 +133,36 @@ function background_Default() {
 
     document.body.style.color = originalTextColor
 }
+/*------------------------------------------------------------------------------------------------------------- */
+
+function Color_elements() {
+    let color_titles = document.getElementsByClassName('Title_proyect')
+
+    for (let i = 0; i < color_titles.length; i++) {
+        color_titles[i].style.color = originalBackgroundColor
+    }
+
+    let color_bold = document.getElementsByClassName('text_bold')
+    for (let i = 0; i < color_bold.length; i++) {
+        color_bold[i].style.color = originalBackgroundColor
+    }
+}
+function applyHoverEffect(className) {
+    let elements = document.getElementsByClassName(className)
+
+    for (let i = 0; i < elements.length; i++) {
+        let link = elements[i].querySelector('a')
+
+        link.addEventListener('mouseenter', function () {
+            let computedStyle = window.getComputedStyle(elements[i])
+            let originalRGB = originalBackgroundColor.match(/\d+/g)
+            link.style.backgroundColor = `rgba(${originalRGB[0]}, ${originalRGB[1]}, ${originalRGB[2]}, 0.3)`
+        })
+
+        link.addEventListener('mouseleave', function () {
+            link.style.backgroundColor = 'transparent'
+        })
+    }
+}
+
+applyHoverEffect('button_active')

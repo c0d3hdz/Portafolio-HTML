@@ -31,9 +31,6 @@ body {
     z-index: 10000;
 }
 /*----------------------------*/
-.icon_menu {
-    color: rgb(37, 179, 75);
-}
 .content_theme > .menu_telephone {
     display: none;
 }
@@ -64,10 +61,6 @@ body {
 .button_active > a {
     padding: 15px;
     border-radius: 10px;
-}
-.button_active :hover {
-    background-color: rgba(70, 248, 70, 0.135);
-    color: rgb(37, 179, 75);
 }
 /*--------------------------------------------------------------------------*/
 .Content_main {
@@ -113,7 +106,7 @@ body {
 }
 .Card_presentation > hr {
     width: 6%;
-    border: rgb(37, 179, 75) 2px solid;
+    border: 2px solid;
     border-radius: 40px;
 }
 .Card_presentation > img {
@@ -159,11 +152,9 @@ body {
     padding: 5px;
     font-size: xx-large;
     border-radius: 10px;
-    border-left: rgb(37, 179, 75) solid;
+    border-left: solid;
 }
-.Tags_Lenguage {
-    color: rgb(37, 179, 75);
-}
+
 
 .Proyect_img {
     position: relative;
@@ -193,7 +184,6 @@ body {
     align-items: center;
 }
 .tags_more > ul {
-    color: rgb(37, 179, 75);
     font-weight: 900;
     text-decoration: underline;
 }
