@@ -1,5 +1,17 @@
 let Cambio_de_tema = document.getElementsByClassName('change_theme')
-let originalBackgroundColor = 'rgb(204, 255, 204)'
+const pastelColors = [
+    'rgb(255, 204, 204)', // Rosa pastel
+    'rgb(255, 229, 204)', // Melocotón pastel
+    'rgb(255, 255, 204)', // Amarillo pastel
+    'rgb(204, 255, 204)', // Verde pastel
+    'rgb(204, 255, 255)', // Cian pastel
+    'rgb(204, 204, 255)', // Azul pastel
+    'rgb(255, 204, 255)', // Lila pastel
+    'rgb(255, 153, 204)', // Malva pastel
+    'rgb(255, 204, 153)', // Melón pastel
+    'rgb(153, 204, 255)', // Celeste pastel
+]
+let originalBackgroundColor = pastelColors[0]
 let originalTextColor = 'rgb(0, 0, 0)'
 let isDarkMode = false
 
@@ -28,7 +40,7 @@ let changeColorButton = document.querySelector('.change_color')
 changeColorButton.addEventListener('click', toggle_panelColor)
 
 function toggleDarkMode() {
-    let backgroundColor = window.getComputedStyle(document.body).getPropertyValue('background-color')
+    let backgroundColor = originalBackgroundColor
     let rgb = backgroundColor.match(/\d+/g)
     let darkerRGB = rgb.map(value => Math.floor(value * 0.3))
     let darkerBackgroundColor = `rgb(${darkerRGB[0]}, ${darkerRGB[1]}, ${darkerRGB[2]})`
@@ -36,9 +48,9 @@ function toggleDarkMode() {
 
     let backGroundElements = document.querySelectorAll('.back_ground')
     backGroundElements.forEach(element => {
-        let elementColor = window.getComputedStyle(element).getPropertyValue('background-color')
+        let elementColor = originalBackgroundColor
         let elementRGB = elementColor.match(/\d+/g)
-        let darkerElementRGB = elementRGB.map(value => Math.floor(value * 0.2))
+        let darkerElementRGB = elementRGB.map(value => Math.floor(value * 0.5))
         let darkerElementColor = `rgb(${darkerElementRGB[0]}, ${darkerElementRGB[1]}, ${darkerElementRGB[2]})`
         element.style.backgroundColor = darkerElementColor
     })
@@ -92,19 +104,6 @@ window.addEventListener('resize', updatePanelPosition)
 /*----------------------------------------------------- */
 /*funcion para cambiar el color de fondo de la web */
 
-const pastelColors = [
-    'rgb(255, 204, 204)', // Rosa pastel
-    'rgb(255, 229, 204)', // Melocotón pastel
-    'rgb(255, 255, 204)', // Amarillo pastel
-    'rgb(204, 255, 204)', // Verde pastel
-    'rgb(204, 255, 255)', // Cian pastel
-    'rgb(204, 204, 255)', // Azul pastel
-    'rgb(255, 204, 255)', // Lila pastel
-    'rgb(255, 153, 204)', // Malva pastel
-    'rgb(255, 204, 153)', // Melón pastel
-    'rgb(153, 204, 255)', // Celeste pastel
-]
-
 const panelColor = document.querySelector('.panelColor')
 const colorRange = document.getElementById('colorRange')
 
@@ -116,6 +115,8 @@ colorRange.addEventListener('input', function () {
 
     if (!isDarkMode) {
         document.body.style.backgroundColor = selectedColor
+    } else {
+        toggleDarkMode()
     }
 })
 
