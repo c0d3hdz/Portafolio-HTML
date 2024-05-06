@@ -1,49 +1,49 @@
 let Cambio_de_tema = document.getElementsByClassName('change_theme')
 const pastelColors = [
-    'rgb(255, 0, 0)', // Rojo
-    'rgb(255, 69, 0)', // Rojo anaranjado
-    'rgb(255, 127, 0)', // Naranja
-    'rgb(255, 165, 0)', // Naranja oscuro
-    'rgb(255, 192, 0)', // Naranja amarillento
-    'rgb(255, 255, 0)', // Amarillo
+    'rgb(255, 1, 1)', // Rojo
+    'rgb(255, 69, 1)', // Rojo anaranjado
+    'rgb(255, 127, 1)', // Naranja
+    'rgb(255, 165, 1)', // Naranja oscuro
+    'rgb(255, 192, 1)', // Naranja amarillento
+    'rgb(255, 255, 1)', // Amarillo
     'rgb(255, 255, 102)', // Amarillo claro
-    'rgb(204, 255, 0)', // Lima
+    'rgb(204, 255, 1)', // Lima
     'rgb(173, 255, 47)', // Verde lima
     'rgb(154, 205, 50)', // Verde limón
     'rgb(152, 251, 152)', // Verde pálido
-    'rgb(0, 255, 0)', // Verde
+    'rgb(1, 255, 1)', // Verde
     'rgb(50, 205, 50)', // Verde bosque
-    'rgb(0, 250, 154)', // Verde medio
-    'rgb(0, 128, 0)', // Verde oscuro
+    'rgb(1, 250, 154)', // Verde medio
+    'rgb(1, 128, 1)', // Verde oscuro
     'rgb(34, 139, 34)', // Verde bosque oscuro
-    'rgb(0, 255, 255)', // Cian
-    'rgb(0, 206, 209)', // Turquesa claro
+    'rgb(1, 255, 255)', // Cian
+    'rgb(1, 206, 209)', // Turquesa claro
     'rgb(72, 209, 204)', // Turquesa medio
-    'rgb(0, 128, 128)', // Verde azulado
+    'rgb(1, 128, 128)', // Verde azulado
     'rgb(32, 178, 170)', // Verde azulado claro
-    'rgb(0, 0, 255)', // Azul
-    'rgb(0, 0, 205)', // Azul medio
+    'rgb(1, 1, 255)', // Azul
+    'rgb(1, 1, 205)', // Azul medio
     'rgb(65, 105, 225)', // Azul real
-    'rgb(0, 0, 128)', // Azul oscuro
+    'rgb(1, 1, 128)', // Azul oscuro
     'rgb(25, 25, 112)', // Azul medianoche
     'rgb(138, 43, 226)', // Violeta
-    'rgb(148, 0, 211)', // Violeta oscuro
-    'rgb(139, 0, 139)', // Violeta oscuro
+    'rgb(148, 1, 211)', // Violeta oscuro
+    'rgb(139, 1, 139)', // Violeta oscuro
     'rgb(186, 85, 211)', // Orquídea
     'rgb(218, 112, 214)', // Orquídea medio
     'rgb(153, 50, 204)', // Orquídea oscuro
-    'rgb(148, 0, 211)', // Violeta
+    'rgb(148, 1, 211)', // Violeta
     'rgb(216, 191, 216)', // Lavanda
     'rgb(221, 160, 221)', // Orquídea pálida
-    'rgb(255, 0, 255)', // Magenta
+    'rgb(255, 1, 255)', // Magenta
     'rgb(238, 130, 238)', // Magenta pálido
     'rgb(255, 105, 180)', // Rosa claro
     'rgb(255, 192, 203)', // Rosa
     'rgb(255, 182, 193)', // Rosa claro
-    'rgb(255, 69, 0)', // Rojo anaranjado (repetido al final)
+    'rgb(255, 69, 1)', // Rojo anaranjado (repetido al final)
 ]
 
-let originalBackgroundColor = pastelColors[0]
+let originalBackgroundColor
 let originalTextColor = 'rgb(0, 0, 0)'
 let isDarkMode = true
 
@@ -51,14 +51,14 @@ for (let i = 0; i < Cambio_de_tema.length; i++) {
     Cambio_de_tema[i].addEventListener('click', event => {
         if (!isDarkMode) {
             toggleDarkMode()
+            isDarkMode = true
         } else {
             background_Default()
-
             isDarkMode = false
-            console.log('Cambiado a modo claro')
         }
     })
 }
+
 function toggle_panelColor() {
     let panel_Content = document.querySelector('.panelColor')
 
@@ -68,6 +68,7 @@ function toggle_panelColor() {
         panel_Content.style.display = 'none'
     }
 }
+
 let changeColorButton = document.querySelector('.change_color')
 changeColorButton.addEventListener('click', toggle_panelColor)
 
@@ -90,11 +91,14 @@ function toggleDarkMode() {
     document.body.style.color = 'rgb(255, 255, 255)'
 
     isDarkMode = true
-    console.log('Cambiado a modo oscuro')
 }
-
 function background_Default() {
-    document.body.style.backgroundColor = originalBackgroundColor
+    let lightColor = originalBackgroundColor
+    let lightRgb = lightColor.match(/\d+/g)
+    let lightColorRGB = lightRgb.map(value => Math.max(Math.floor(value * 1), 120))
+
+    let lightBackgroundColor = `rgb(${lightColorRGB[0]}, ${lightColorRGB[1]}, ${lightColorRGB[2]})`
+    document.body.style.backgroundColor = lightBackgroundColor
 
     let backGroundElements = document.querySelectorAll('.back_ground')
     backGroundElements.forEach(element => {
@@ -103,7 +107,27 @@ function background_Default() {
 
     document.body.style.color = originalTextColor
 }
-background_Default()
+/*----------------------------------------------------- */
+/*funcion para cambiar el color de fondo de la web */
+
+const panelColor = document.querySelector('.panelColor')
+const colorRange = document.getElementById('colorRange')
+
+colorRange.addEventListener('input', function () {
+    const index = parseInt(colorRange.value)
+    const selectedColor = pastelColors[index]
+
+    originalBackgroundColor = selectedColor
+
+    if (!isDarkMode) {
+        background_Default()
+    } else {
+        toggleDarkMode()
+    }
+    Color_elements()
+})
+
+colorRange.dispatchEvent(new Event('input'))
 //---------------------------------------------------------------------
 let X_panelColor = 0
 let Y_panelColor = 0
@@ -133,38 +157,6 @@ function updatePanelPosition() {
 updatePanelPosition()
 
 window.addEventListener('resize', updatePanelPosition)
-/*----------------------------------------------------- */
-/*funcion para cambiar el color de fondo de la web */
-
-const panelColor = document.querySelector('.panelColor')
-const colorRange = document.getElementById('colorRange')
-
-colorRange.addEventListener('input', function () {
-    const index = parseInt(colorRange.value)
-    const selectedColor = pastelColors[index]
-
-    originalBackgroundColor = selectedColor
-
-    if (!isDarkMode) {
-        document.body.style.backgroundColor = selectedColor
-    } else {
-        toggleDarkMode()
-    }
-    Color_elements()
-})
-
-colorRange.dispatchEvent(new Event('input'))
-
-function background_Default() {
-    document.body.style.backgroundColor = originalBackgroundColor
-
-    let backGroundElements = document.querySelectorAll('.back_ground')
-    backGroundElements.forEach(element => {
-        element.style.backgroundColor = ''
-    })
-
-    document.body.style.color = originalTextColor
-}
 /*------------------------------------------------------------------------------------------------------------- */
 
 function Color_elements() {
