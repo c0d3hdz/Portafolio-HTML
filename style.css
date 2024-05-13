@@ -111,8 +111,16 @@ body {
 .Card_presentation > img {
     width: 100%;
     height: calc(100% - 20%);
-    border-radius: 20px;
+    border-radius: 74px 159px 150px 22px;
+    -moz-border-radius: 74px 159px 150px 22px;
+    -webkit-border-radius: 74px 159px 150px 22px;
+    border: 0px solid #000000;
 }
+.Socials_Content {
+    display: flex;
+    justify-content: space-around;
+}
+
 /*--------------------------------------------------------------------------*/
 .Card_descripcion_proyect {
     margin-bottom: 10px;
@@ -133,6 +141,8 @@ body {
 }
 .Tags_Lenguage {
     grid-area: Tags_Lenguage;
+    display: flex;
+    gap: 30px;
 }
 .Descripcion_proyect {
     grid-area: Descripcion_proyect;
@@ -255,7 +265,7 @@ input[type='range']::-webkit-slider-thumb:hover {
 }
 
 /*----------------------------------------------------------------------*/
-@media (max-width: 500px) {
+@media (max-width: 750px) {
     .Content_main {
         padding: 30px;
         margin-top: 20px;
@@ -284,6 +294,21 @@ input[type='range']::-webkit-slider-thumb:hover {
         display: none;
     }
     .Card_descripcion_proyect {
+        margin-bottom: 10px;
+        border-radius: 20px;
+        padding: 20px;
         height: 400px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto 1fr 1fr;
+        gap: 10px 10px;
+        grid-template-areas:
+            'Title_proyect Title_proyect Tags_Lenguage'
+            'Proyect_img Proyect_img Proyect_img '
+            'Descripcion_proyect Descripcion_proyect Descripcion_proyect ';
+    }
+    .Tags_Lenguage{
+        display: flex;
+        gap: 2px;
     }
 }
