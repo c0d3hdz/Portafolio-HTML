@@ -28,7 +28,7 @@ Puedes ver una demostración en vivo de mi portafolio [aquí](https://c0d3hdz.gi
 - ![image](https://github.com/c0d3hdz/Portafolio-HTML/assets/145168535/afde086c-f64f-428c-b234-b82e9f91ef3d)
 
 
-## Tecnologías Utilizadas
+## Tecnologías Utiliza
 
 - HTML5
 - CSS3
